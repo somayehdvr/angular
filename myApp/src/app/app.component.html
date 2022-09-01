@@ -4,16 +4,16 @@
     <!-- When the data is loading, show "loading..." -->
     <div *ngIf="loading"> 
       loading...
-        <FetchAPI setData={setData} setLoading={setLoading} API={"/api/meals"} />
+        <!-- <FetchAPI setData={setData} setLoading={setLoading} API={"/api/meals"} /> -->
     </div>
     <div *ngIf="!loading">
         <!-- When the data result is empty (no meals), show "No results..." -->
-        <p *ngIf="meals.length = 0">
+        <p *ngIf="meals?.length == 0">
             No results...
         </p>
-        <div *ngIf="meals.length != 0" id="content">
-            <ng-container *ngFor="let meal of meals; let i=index">
-              <app-meal [key]="meal.id" [meal]="meal" [price]="meal.price | currency: 'DKK'"></app-meal>
+        <div *ngIf="meals?.length != 0" id="content">
+            <ng-container *ngFor="let meal of meals">
+              <app-meal [key]="meal.id" [meal]="meal" [price]="meal.price"></app-meal>
             </ng-container>
         </div>
   </div>

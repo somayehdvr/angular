@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
-
-interface meal {
-  id: number;
-  name: string;
-  price: number;
-}
+import { Component, Input, OnInit } from '@angular/core';
+import { meal } from '../interface/meal';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-meal',
+  templateUrl: './meal.component.html',
+  styleUrls: ['./meal.component.css'],
 })
-export class AppComponent {
-  title: string = 'myApp';
-  meals: meal[] = [
-    { id: 1, name: 'gheime', price: 100 },
-    { id: 2, name: 'polo', price: 50 },
-  ];
-  loading: boolean = false;
+export class mealComponent implements OnInit {
+  constructor() { }
+  ngOnInit(): void {
+    
+  }
+  @Input() key = 0;
+  @Input() meal: meal = {
+    id: 0,
+    name: '',
+    price: 0
+  };
+  @Input() price = 0;
 }

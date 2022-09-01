@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-interface meal {
-  id: number;
-  name: string;
-  price: number;
-}
+import { meal } from './interface/meal';
 
 @Component({
   selector: 'app-root',
