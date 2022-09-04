@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
 import { meal } from './interface/meal';
 
 @Component({
@@ -6,11 +7,13 @@ import { meal } from './interface/meal';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(private appService: AppService) {  }
   title: string = 'myApp';
-  meals: meal[] = [
-    { id: 1, name: 'gheime', price: 100 },
-    { id: 2, name: 'polo', price: 50 },
-  ];
+  meals: meal[] = [];
   loading: boolean = false;
+
+  ngOnInit(): void {
+    this.meals = this.appService.getMeals()
+  }
 }
